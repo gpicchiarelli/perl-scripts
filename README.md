@@ -1,4 +1,4 @@
-# Perl Utility Scripts
+# Perl Scripts
 
 Questo repository contiene una raccolta di script Perl utili per vari scopi. Gli script sono progettati per facilitare attività quotidiane, automazioni e altre operazioni che possono essere svolte con Perl.
 
