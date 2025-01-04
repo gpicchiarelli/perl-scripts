@@ -2,6 +2,7 @@
 
 use strict;
 use warnings;
+use Getopt::Long;
 
 # Dizionario Morse
 my %morse_code = (
@@ -53,15 +54,39 @@ sub decode_morse {
     return join '', @decoded;
 }
 
-# Test dello script
-print "Inserisci il testo da codificare in Morse: ";
-my $input = <STDIN>;
-chomp($input);
-my $encoded = encode_morse($input);
-print "Codificato in Morse: $encoded\n";
+# Gestione delle opzioni della riga di comando
+my $input_text = "";
+my $morse_input = "";
+my $dec = undef;
+my $enc = undef;
 
-print "\nInserisci il codice Morse da decodificare: ";
-my $morse_input = <STDIN>;
-chomp($morse_input);
-my $decoded = decode_morse($morse_input);
-print "Decodificato in Testo: $decoded\n";
+GetOptions(
+    'encode=s' => \$input_text,
+    'decode=s' => \$morse_input,
+) or warn "Uso: $0 --encode <testo> | --decode <morse>\n";
+
+# Trimma gli spazi bianchi all'inizio e alla fine della stringa
+$input_text =~ s/^\s+|\s+$//g;
+$morse_input =~ s/^\s+|\s+$//g;
+
+if (length($input_text) gt 0 ) {$enc = 1;}
+if (length($morse_input) gt 0 ) {$dec = 1;}
+
+
+# Verifica le opzioni ricevute e stampa di debug
+print "Opzioni ricevute: encode='$input_text', decode='$morse_input'\n";
+print "--encode è stato valorizzato: " . (defined $input_text ? "Sì ($input_text)" : "No") . "\n";
+print "--decode è stato valorizzato: " . (defined $morse_input ? "Sì ($morse_input)" : "No") . "\n";
+
+# Codifica o Decodifica a seconda delle opzioni
+if ($enc) {
+    print "Codificando il testo: $input_text\n";  # Debug
+    my $encoded = encode_morse($input_text);
+    print "Codificato in Morse: $encoded\n";
+} elsif ($dec) {
+    print "Decodificando il Morse: $morse_input\n";  # Debug
+    my $decoded = decode_morse($morse_input);
+    print "Decodificato in Testo: $decoded\n";
+} else {
+    die "Uso: $0 --encode <testo> | --decode <morse>\n";
+}
