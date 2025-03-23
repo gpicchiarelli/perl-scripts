@@ -1,9 +1,13 @@
 #!/usr/bin/perl
-# File Read Write
-# Categoria: Io
+# Lettura e scrittura file realistico
 # Licenza: BSD
-
 use strict;
 use warnings;
 
-print "Questo è uno script di esempio per file_read_write in categoria io.\n";
+open(my $fh, '>', 'file.txt') or die "Errore: $!";
+print $fh "Esempio di testo scritto in file\n";
+close $fh;
+
+open($fh, '<', 'file.txt') or die "Errore: $!";
+print while <$fh>;
+close $fh;

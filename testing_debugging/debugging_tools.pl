@@ -1,9 +1,9 @@
 #!/usr/bin/perl
-# Debugging Tools
-# Categoria: Testing_Debugging
+# Debugging realistico con Data::Dumper
 # Licenza: BSD
-
 use strict;
 use warnings;
+use Data::Dumper;
 
-print "Questo è uno script di esempio per debugging_tools in categoria testing_debugging.\n";
+my %hash = (nome => 'Anna', età => 27);
+print Dumper(\%hash);

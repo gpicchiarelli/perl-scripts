@@ -1,9 +1,11 @@
 #!/usr/bin/perl
-# Process Management
-# Categoria: Administration
+# Gestione processi realistico
+# Categoria: Amministrazione
 # Licenza: BSD
-
 use strict;
 use warnings;
 
-print "Questo è uno script di esempio per process_management in categoria administration.\n";
+my @processes = `ps aux`;
+foreach my $process (@processes) {
+    print $process;
+}

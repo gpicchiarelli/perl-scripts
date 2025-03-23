@@ -1,9 +1,10 @@
 #!/usr/bin/perl
-# Unit Testing
-# Categoria: Testing_Debugging
+# Test unitario con Test::Simple
+# Categoria: Testing e Debugging
 # Licenza: BSD
-
 use strict;
 use warnings;
+use Test::Simple tests => 2;
 
-print "Questo è uno script di esempio per unit_testing in categoria testing_debugging.\n";
+ok(1 + 1 == 2, 'Somma funziona');
+ok('abc' eq 'abc', 'Confronto stringhe');

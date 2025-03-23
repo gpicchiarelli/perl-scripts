@@ -1,9 +1,13 @@
 #!/usr/bin/perl
-# Sentiment Analysis
-# Categoria: Nlp
+# Analisi del Sentiment Semplice
+# Categoria: NLP
 # Licenza: BSD
-
 use strict;
 use warnings;
+use Lingua::EN::Sentiment;
 
-print "Questo è uno script di esempio per sentiment_analysis in categoria nlp.\n";
+my $analyzer = Lingua::EN::Sentiment->new();
+my $text = "I love programming in Perl. It's fantastic!";
+
+my $score = $analyzer->sentiment($text);
+print "Sentiment score: $score\n";

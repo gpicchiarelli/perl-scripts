@@ -1,9 +1,17 @@
 #!/usr/bin/perl
-# Sqlite Interaction
-# Categoria: Database
+# Esempio SQLite reale
 # Licenza: BSD
-
 use strict;
 use warnings;
+use DBI;
 
-print "Questo è uno script di esempio per sqlite_interaction in categoria database.\n";
+my $dbh = DBI->connect("dbi:SQLite:dbname=test.db","","") or die $DBI::errstr;
+$dbh->do("CREATE TABLE IF NOT EXISTS persone (nome TEXT, età INTEGER)");
+$dbh->do("INSERT INTO persone VALUES ('Giulia', 29)");
+
+my $sth = $dbh->prepare("SELECT * FROM persone");
+$sth->execute();
+while(my @row = $sth->fetchrow_array) {
+    print "Nome: $row[0], Età: $row[1]\n";
+}
+$dbh->disconnect();

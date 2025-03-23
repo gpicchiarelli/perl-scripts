@@ -1,9 +1,16 @@
 #!/usr/bin/perl
-# Udp Client
+# Client UDP semplice
 # Categoria: Networking
 # Licenza: BSD
-
 use strict;
 use warnings;
+use IO::Socket::INET;
 
-print "Questo è uno script di esempio per udp_client in categoria networking.\n";
+my $socket = IO::Socket::INET->new(
+    PeerAddr => 'localhost',
+    PeerPort => 5001,
+    Proto    => 'udp'
+) or die "Impossibile creare socket UDP: $!";
+
+$socket->send("Messaggio da client UDP");
+close($socket);

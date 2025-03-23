@@ -1,9 +1,10 @@
 #!/usr/bin/perl
-# String Manipulation
-# Categoria: Utilities
+# Manipolazione avanzata stringhe
 # Licenza: BSD
-
 use strict;
 use warnings;
 
-print "Questo è uno script di esempio per string_manipulation in categoria utilities.\n";
+my $text = "   Perl è fantastico!  ";
+$text =~ s/^\s+|\s+$//g; # trim
+$text = uc($text); # uppercase
+print "Testo modificato: $text\n";

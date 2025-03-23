@@ -1,9 +1,11 @@
 #!/usr/bin/perl
-# Yaml Parsing
-# Categoria: Data_Formats
+# Parsing YAML realistico
 # Licenza: BSD
-
 use strict;
 use warnings;
+use YAML::XS;
 
-print "Questo è uno script di esempio per yaml_parsing in categoria data_formats.\n";
+my $yaml = "---\nnome: Marco\netà: 28\ncittà: Firenze\n";
+my $data = Load($yaml);
+
+print "Nome: $data->{nome}, Età: $data->{età}, Città: $data->{città}\n";

@@ -1,9 +1,10 @@
 #!/usr/bin/perl
-# Xml Parsing
-# Categoria: Data_Formats
+# Parsing XML completo
 # Licenza: BSD
-
 use strict;
 use warnings;
+use XML::Simple;
 
-print "Questo è uno script di esempio per xml_parsing in categoria data_formats.\n";
+my $xml = '<persona><nome>Luca</nome><età>32</età></persona>';
+my $data = XMLin($xml);
+print "Nome: $data->{nome}, Età: $data->{età}\n";

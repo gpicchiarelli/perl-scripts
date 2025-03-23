@@ -1,9 +1,13 @@
 #!/usr/bin/perl
-# Resource Monitoring
-# Categoria: Administration
+# Monitoraggio delle risorse (CPU e memoria)
 # Licenza: BSD
-
 use strict;
 use warnings;
+use Sys::Statistics::Linux;
 
-print "Questo è uno script di esempio per resource_monitoring in categoria administration.\n";
+my $lxs = Sys::Statistics::Linux->new(cpustats => 1, memstats => 1);
+sleep(1);
+my $stats = $lxs->get;
+
+print "Utilizzo CPU: " . $stats->cpustats->{cpu}->{total} . "%\n";
+print "Memoria libera: " . ($stats->memstats->{memfree} / 1024) . " MB\n";

@@ -1,9 +1,14 @@
 #!/usr/bin/perl
-# Binary File Handling
-# Categoria: Io
+# Gestione file binari
 # Licenza: BSD
-
 use strict;
 use warnings;
 
-print "Questo è uno script di esempio per binary_file_handling in categoria io.\n";
+open(my $fh, '>:raw', 'binary.dat') or die $!;
+print $fh pack('C*', (65, 66, 67));
+close($fh);
+
+open($fh, '<:raw', 'binary.dat') or die $!;
+read($fh, my $data, 3);
+print "Contenuto binario: ", unpack('C*', $data), "\n";
+close($fh);

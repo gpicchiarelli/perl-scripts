@@ -1,9 +1,14 @@
 #!/usr/bin/perl
-# Directory Operations
-# Categoria: Io
+# Operazioni su Directory
+# Categoria: File e I/O
 # Licenza: BSD
 
 use strict;
 use warnings;
+use File::Find;
 
-print "Questo è uno script di esempio per directory_operations in categoria io.\n";
+my $dir = '.';
+
+find(sub {
+    print "$File::Find::name\n" if -f;
+}, $dir);

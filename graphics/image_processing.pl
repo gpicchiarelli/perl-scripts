@@ -1,9 +1,12 @@
 #!/usr/bin/perl
-# Image Processing
-# Categoria: Graphics
+# Ridimensionamento immagini con PerlMagick
 # Licenza: BSD
-
 use strict;
 use warnings;
+use Image::Magick;
 
-print "Questo è uno script di esempio per image_processing in categoria graphics.\n";
+my $img = Image::Magick->new;
+$img->Read('input.jpg');
+$img->Resize(geometry => '200x200');
+$img->Write('output_resized.jpg');
+print "Immagine ridimensionata salvata come output_resized.jpg\n";

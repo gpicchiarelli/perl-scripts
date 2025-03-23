@@ -1,9 +1,13 @@
 #!/usr/bin/perl
-# System Backup
-# Categoria: Administration
+# Backup automatico di directory importanti
 # Licenza: BSD
-
 use strict;
 use warnings;
+use File::Copy::Recursive qw(dircopy);
+use POSIX qw(strftime);
 
-print "Questo è uno script di esempio per system_backup in categoria administration.\n";
+my $source = '/home/utente/documenti';
+my $dest = '/home/utente/backup_' . strftime("%Y%m%d", localtime);
+
+dircopy($source, $dest) or die "Backup fallito: $!";
+print "Backup completato in $dest\n";

@@ -1,9 +1,17 @@
 #!/usr/bin/perl
-# Event Loop Example
-# Categoria: Async
+# Esempio di loop di eventi asincrono (AnyEvent)
 # Licenza: BSD
-
 use strict;
 use warnings;
+use AnyEvent;
 
-print "Questo è uno script di esempio per event_loop_example in categoria async.\n";
+my $cv = AnyEvent->condvar;
+my $count = 0;
+
+my $w = AnyEvent->timer(interval => 1, cb => sub {
+    $count++;
+    print "Evento $count\n";
+    $cv->send if $count >= 5;
+});
+
+$cv->recv;

@@ -1,9 +1,9 @@
 #!/usr/bin/perl
-# Deployment Automation
-# Categoria: Administration
+# Automazione deploy con Perl
 # Licenza: BSD
-
 use strict;
 use warnings;
 
-print "Questo è uno script di esempio per deployment_automation in categoria administration.\n";
+system('git pull origin master');
+system('cp -r ./app /var/www/html/app');
+print "Deploy eseguito correttamente.\n";

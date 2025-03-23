@@ -1,9 +1,11 @@
 #!/usr/bin/perl
-# Tcp Client
-# Categoria: Networking
+# TCP Client completo e funzionale
 # Licenza: BSD
-
 use strict;
 use warnings;
+use IO::Socket::INET;
 
-print "Questo è uno script di esempio per tcp_client in categoria networking.\n";
+my $socket = IO::Socket::INET->new('127.0.0.1:5000') or die "Errore connessione: $!";
+print $socket "Saluti dal client Perl!\n";
+print while <$socket>;
+close($socket);

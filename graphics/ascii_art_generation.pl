@@ -1,9 +1,10 @@
 #!/usr/bin/perl
-# Ascii Art Generation
-# Categoria: Graphics
+# Generatore ASCII Art
+# Categoria: Grafica
 # Licenza: BSD
-
 use strict;
 use warnings;
+use Text::FIGlet;
 
-print "Questo è uno script di esempio per ascii_art_generation in categoria graphics.\n";
+my $figlet = Text::FIGlet->new(-f => "standard");
+print $figlet->figify("Ciao Perl!");

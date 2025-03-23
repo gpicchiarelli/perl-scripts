@@ -1,9 +1,12 @@
 #!/usr/bin/perl
-# Date Time Operations
-# Categoria: Utilities
+# Operazioni Data e Ora avanzate
 # Licenza: BSD
-
 use strict;
 use warnings;
+use DateTime;
 
-print "Questo è uno script di esempio per date_time_operations in categoria utilities.\n";
+my $dt = DateTime->now(time_zone => 'Europe/Rome');
+print "Data/Ora attuale: " . $dt->ymd . ' ' . $dt->hms . "\n";
+
+$dt->add(days => 10);
+print "Data tra 10 giorni: " . $dt->ymd . "\n";

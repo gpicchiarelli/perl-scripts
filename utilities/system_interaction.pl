@@ -1,9 +1,8 @@
 #!/usr/bin/perl
-# System Interaction
-# Categoria: Utilities
+# Interazione con il sistema operativo
 # Licenza: BSD
-
 use strict;
 use warnings;
 
-print "Questo è uno script di esempio per system_interaction in categoria utilities.\n";
+my $output = `ls -l`;
+print "Output del comando: $output\n";

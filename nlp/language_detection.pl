@@ -1,9 +1,9 @@
 #!/usr/bin/perl
-# Language Detection
-# Categoria: Nlp
+# Rilevamento lingua semplice con Lingua::Identify
 # Licenza: BSD
-
 use strict;
 use warnings;
+use Lingua::Identify qw(langof);
 
-print "Questo è uno script di esempio per language_detection in categoria nlp.\n";
+my $text = "Questo testo è scritto in italiano.";
+print "Lingua rilevata: ", langof($text), "\n";

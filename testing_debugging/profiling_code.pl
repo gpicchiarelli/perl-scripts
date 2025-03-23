@@ -1,9 +1,11 @@
 #!/usr/bin/perl
-# Profiling Code
-# Categoria: Testing_Debugging
+# Profiling realistico con Devel::NYTProf
 # Licenza: BSD
-
 use strict;
 use warnings;
 
-print "Questo è uno script di esempio per profiling_code in categoria testing_debugging.\n";
+# Esegui: perl -d:NYTProf profiling_code.pl poi nytprofhtml
+for (my $i = 0; $i < 1000; $i++) {
+    my $x = $i ** 2;
+}
+print "Profiling completato.\n";

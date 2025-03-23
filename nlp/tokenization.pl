@@ -1,9 +1,9 @@
 #!/usr/bin/perl
-# Tokenization
-# Categoria: Nlp
+# Tokenizzazione testo con regex
 # Licenza: BSD
-
 use strict;
 use warnings;
 
-print "Questo è uno script di esempio per tokenization in categoria nlp.\n";
+my $text = "Questo è un esempio di tokenizzazione.";
+my @tokens = split(/\W+/, $text);
+print "Token: @tokens\n";
