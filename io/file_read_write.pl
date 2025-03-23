@@ -1,20 +1,9 @@
 #!/usr/bin/perl
-# File Reading and Writing Example
+# File Read Write
+# Categoria: Io
 # Licenza: BSD
 
 use strict;
 use warnings;
-my $filename = "example.txt";
 
-open(my $fh, '>', $filename) or die "Non posso aprire '$filename': $!";
-print $fh "Hello, Perl!
-";
-close $fh;
-
-open($fh, '<', $filename) or die "Non posso aprire '$filename': $!";
-while (my $row = <$fh>) {
-  chomp $row;
-  print "Linea letta: $row
-";
-}
-close $fh;
+print "Questo è uno script di esempio per file_read_write in categoria io.\n";
